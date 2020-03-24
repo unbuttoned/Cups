@@ -1,6 +1,7 @@
 FROM phusion/baseimage:0.11
 MAINTAINER gfjardim <gfjardim@gmail.com>
 
+
 #########################################
 ##        ENVIRONMENTAL CONFIG         ##
 #########################################
