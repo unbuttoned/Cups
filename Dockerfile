@@ -5,7 +5,8 @@ MAINTAINER UNBUTTONED
 RUN apt-get update \
 && apt-get install -y \
   curl \
-  gnupg
+  gnupg \
+  software-properties-common
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN curl -skL http://www.bchemnet.com/suldr/pool/debian/extra/su/suldr-keyring_2_all.deb -o /tmp/suldr-keyring.deb
 RUN dpkg -i /tmp/suldr-keyring.deb
