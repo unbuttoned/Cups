@@ -1,4 +1,4 @@
-FROM ubuntu:devel
+FROM phusion/baseimage:0.10.2
 MAINTAINER gfjardim <gfjardim@gmail.com>
 
 
