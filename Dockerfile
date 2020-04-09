@@ -7,6 +7,7 @@ RUN apt-get update \
   curl \
   gnupg \
   software-properties-common
+  
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN curl -skL http://www.bchemnet.com/suldr/pool/debian/extra/su/suldr-keyring_2_all.deb -o /tmp/suldr-keyring.deb
 RUN dpkg -i /tmp/suldr-keyring.deb
