@@ -7,6 +7,10 @@ RUN apt-get update \
   curl \
   gnupg \
   software-properties-common
+ 
+# environment
+ENV ADMIN_PASSWORD=admin
+
   
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN curl -skL http://www.bchemnet.com/suldr/pool/debian/extra/su/suldr-keyring_2_all.deb -o /tmp/suldr-keyring.deb
@@ -40,6 +44,12 @@ RUN useradd \
   --password=$(mkpasswd print) \
   print \
 && sed -i '/%sudo[[:space:]]/ s/ALL[[:space:]]*$/NOPASSWD:ALL/' /etc/sudoers
+
+# add print user
+RUN adduser --home /home/admin --shell /bin/bash --gecos "admin" --disabled-password admin \
+  && adduser admin sudo \
+  && adduser admin lp \
+  && adduser admin lpadmin
 
 # Configure the service's to be reachable
 RUN /usr/sbin/cupsd \
